@@ -30,7 +30,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh; /* Altezza fissa della viewport */
-            /* overflow: hidden;  Mantiene lo sfondo fisso, ma impedisce lo scroll del contenuto */
+            overflow: hidden; /* Impedisce lo scrolling */
             padding-top: 60px; /* Padding per la navbar */
         }
 
@@ -93,10 +93,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* justify-content: center;  Non più necessario */
-            /* margin-top: -50px;  Non più necessario */
-            max-height: calc(100vh - 60px); /* Altezza massima: 100vh - altezza navbar */
-            overflow-y: auto; /* Abilita lo scrolling verticale */
+            justify-content: center; /* Centra verticalmente il contenuto */
             padding: 20px; /* Aggiungi un po' di padding interno */
         }
 
@@ -105,10 +102,10 @@
             background-color: rgba(0, 0, 0, 0.8); /* Sfondo leggermente più scuro */
             display: inline-block;
             border-radius: 10px;
-            width: 20%; /* Larghezza massima del box */
-            max-width: 600px; /* Imposta una larghezza massima per evitare che il box diventi troppo largo */
+            width: 20%; /* Larghezza del box */
+            max-width: 600px; /* Larghezza massima del box */
             color: white; /* Testo bianco */
-            margin-top: 20px; /* Aggiungi un po' di spazio sopra il box */
+            margin-top: 20px; /* Spazio sopra il box */
         }
 
         /* Link */
@@ -128,10 +125,6 @@
                 font-size: 16px;
                 background-attachment: scroll;
                 padding-top: 120px;
-            }
-
-            .content {
-                max-height: calc(100vh - 120px); /* Regola per schermi piccoli */
             }
 
             .navbar a {
