@@ -23,57 +23,7 @@
             flex-direction: column;
             justify-content: center; /* Centra il contenuto */
             min-height: 100vh; /* Occupa almeno tutta la viewport */
-        }
-
-        /* Navbar esterna */
-        .navbar {
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; /* Permette agli elementi di andare a capo se serve */
-            position: fixed; /* Mantiene la navbar fissa in alto */
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-            padding: 10px 20px;
-        }
-
-        /* Contenitore per la scritta e il logo */
-        .navbar .left-content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .navbar p {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .navbar img {
-            height: 30px;
-            margin-left: 10px;
-        }
-
-        /* Link navbar */
-        .navbar .links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .navbar a {
-            color: #4DB8FF;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            margin: 5px 15px;
-        }
-
-        .navbar a:hover {
-            text-decoration: underline;
+            padding-top: 60px; /* Aggiunto padding per evitare sovrapposizione navbar */
         }
 
         /* Contenitore principale */
@@ -96,6 +46,42 @@
             max-width: 600px;
         }
 
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            z-index: 1000;
+            display: flex; /* Abilita flexbox */
+            justify-content: space-between; /* Distribuisce gli elementi */
+            align-items: center; /* Allinea verticalmente al centro */
+        }
+
+        .navbar p { /* Stile per "Leathernecks" */
+            color: #4DB8FF;
+            font-weight: bold;
+            margin: 0; /* Reset margin predefiniti */
+            margin-left: 20px; /* Spazio a sinistra */
+        }
+
+        .links-container {
+            display: flex; /* Necessario per il margin-left */
+            margin-right: 20px; /* Spazio a destra */
+        }
+
+        .navbar a {
+            color: #4DB8FF;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
         /* Link */
         a {
             color: #4DB8FF;
@@ -112,52 +98,31 @@
             body {
                 font-size: 16px;
                 background-attachment: scroll; /* Evita problemi di scrolling su mobile */
-            }
-
-            .navbar {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 10px;
-            }
-
-            .navbar .left-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .navbar .links {
-                width: 100%;
-                justify-content: center;
-                margin-top: 5px;
-            }
-
-            .navbar a {
-                font-size: 14px;
-                margin: 5px;
+                padding-top: 120px; /* Aggiunto padding per evitare sovrapposizione navbar */
             }
 
             .contact {
                 margin-top: 80px; /* Evita che sia troppo in alto */
             }
+
+            .navbar a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar esterna -->
     <div class="navbar">
-        <div class="left-content">
-            <p>Leathernecks Softair</p>
-            <img src="logo.jpg" alt="Logo Leathernecks">
-        </div>
-        <div class="links">
-            <a href="index.html">Home</a>
-            <a href="foto.html">Foto</a>
-            <a href="contatti.html">Contatti</a>
+        <p>Leathernecks</p>
+        <div class="links-container">
+            <a href="#">Chi Siamo</a>
+            <a href="#">Home</a>
+            <a href="#">Attività</a>
+            <a href="#">Contatti</a>
         </div>
     </div>
 
-    <!-- Contenitore principale -->
     <div class="content">
         <div class="contact">
             <h2>Benvenuto su Leathernecks Softair</h2>
