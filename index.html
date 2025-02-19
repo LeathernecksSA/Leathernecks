@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        /* Importa il font Futura */
+        /* Importa il font Futura (assicurati di avere il file del font) */
         @font-face {
             font-family: 'FuturaT';
-            src: url('FuturaT-Regular.ttf') format('truetype');
+            src: url('FuturaT-Regular.ttf') format('truetype'); /* Sostituisci con il percorso corretto */
             font-weight: normal;
             font-style: normal;
         }
 
+        /* Assicura che il body occupi tutta l'altezza della finestra */
         html, body {
             height: 100%;
             margin: 0;
@@ -20,7 +21,7 @@
         }
 
         body {
-            font-family: 'FuturaT', Arial, sans-serif;
+            font-family: 'FuturaT', Arial, sans-serif; /* Usa FuturaT, fallback Arial */
             text-align: center;
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
@@ -28,9 +29,9 @@
             color: white;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Altezza minima per coprire tutta la viewport */
-            overflow-x: hidden; /* Impedisce lo scorrimento orizzontale indesiderato */
-            padding-top: 60px;
+            height: 100vh; /* Altezza fissa della viewport */
+            overflow: hidden; /* Impedisce lo scrolling */
+            padding-top: 60px; /* Padding per la navbar */
         }
 
         /* Contenitore principale */
@@ -39,20 +40,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding-top: 80px; /* Regolato per schermi piccoli */
-            padding-bottom: 20px; /* Aggiunto padding in basso */
+            justify-content: flex-start; /* Allinea il contenuto in alto */
+            padding-top: 100px; /* Regola lo spazio dal bordo superiore */
         }
 
         /* Box con il testo */
         .infobox {
-            padding: 20px; /* Aumentato il padding */
-            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8); /* Sfondo leggermente più scuro */
+            display: inline-block;
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
-            color: white;
-            box-sizing: border-box; /* Include padding e border nella larghezza */
+            color: white; /* Testo bianco */
         }
 
         /* Navbar */
@@ -61,35 +61,51 @@
             top: 0;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            min-height: 50px;
+            padding: 10px; /* Ridotto il padding per diminuire l'altezza */
+            min-height: 50px; /* Imposta un'altezza minima per evitare problemi di layout */
             z-index: 1000;
             display: flex;
-            flex-direction: column; /* Disposizione a colonna su mobile */
-            align-items: center; /* Allinea gli elementi al centro orizzontalmente */
-            box-sizing: border-box; /* Importante per evitare problemi di larghezza */
-        }
-
-        .navbar .logo-container {
-            display: flex;
-            flex-direction: column; /* Logo e testo uno sotto l'altro */
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px; /* Spazio sotto il logo */
         }
 
-        .navbar .logo-container p {
-            margin: 5px 0; /* Margini per il testo */
-        }
-
-        .navbar .links-container {
+        .navbar .logo-container { /* Contenitore per logo e testo */
             display: flex;
-            flex-direction: row; /* Disposizione orizzontale su desktop */
-            justify-content: center; /* Centra i link */
+            align-items: center;
+        }
+
+        .navbar .logo-container p { /* Stile per "Leathernecks Softair" */
+            color: white; /* Scritta bianca */
+            font-weight: bold;
+            margin: 0;
+            margin-left: 20px;
+            font-size: 20px; /* Aumenta la dimensione del testo */
+        }
+
+        .navbar .logo-container img { /* Stile per il logo Leathernecks */
+            height: 30px; /* Ridimensiona il logo */
+            margin-left: 10px;
+        }
+
+        .navbar img[alt="Logo FIGT"] { /* Stile specifico per il logo FIGT */
+            height: 50px; /* Ridimensiona il logo FIGT */
+            margin: 0 10px;
+        }
+
+        .links-container {
+            display: flex;
+            margin-right: 20px;
         }
 
         .navbar a {
-            margin: 0 10px; /* Spazio tra i link */
-            font-size: 16px; /* Dimensione testo link */
+            color: white; /* Link bianchi */
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
         }
 
         /* Link */
@@ -107,40 +123,17 @@
         @media screen and (max-width: 768px) {
             body {
                 font-size: 16px;
-                background-attachment: scroll; /* Sfondo scorrevole su mobile */
-                padding-top: 120px; /* Aumenta il padding per la navbar su mobile */
-                overflow-x: hidden; /* Impedisce lo scorrimento orizzontale */
+                background-attachment: scroll;
+                padding-top: 120px;
             }
 
-            .content {
-                padding-top: 120px; /* Regola ulteriormente il padding su mobile */
-            }
-
-            .infobox {
-                padding: 15px; /* Ridotto il padding su mobile */
-                font-size: 14px; /* Dimensione testo ridotta su mobile */
-            }
-
-            .navbar {
-                flex-direction: column; /* Assicura la disposizione a colonna su mobile */
-                align-items: center; /* Allinea gli elementi al centro orizzontalmente */
-                min-height: 100px; /* Altezza minima navbar su mobile */
-            }
-
-            .navbar .logo-container {
-                flex-direction: column; /* Logo e testo uno sotto l'altro */
-                align-items: center;
-                margin-bottom: 10px;
-            }
-
-            .links-container {
-                flex-direction: column; /* Disposizione a colonna su mobile */
-                align-items: center; /* Centra i link */
+            .contact {
+                margin-top: 80px;
             }
 
             .navbar a {
-                margin: 5px 0; /* Margini per i link su mobile */
-                font-size: 16px;
+                margin: 0 10px;
+                font-size: 14px;
             }
         }
     </style>
@@ -150,8 +143,8 @@
         <div class="logo-container">
             <p>Leathernecks Softair</p>
             <img src="logo.jpg" alt="Logo Leathernecks">
-            <img src="figt.png" alt="Logo FIGT">
         </div>
+        <img src="figt.png" alt="Logo FIGT">
         <div class="links-container">
             <a href="index.html">Home</a>
             <a href="foto.html">Foto</a>
