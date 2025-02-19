@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foto</title>
     <style>
-        /* Importa il font Futura (assicurati di avere il file del font) */
         @font-face {
             font-family: 'FuturaT';
-            src: url('FuturaT-Regular.ttf') format('truetype'); /* Sostituisci con il percorso corretto */
+            src: url('FuturaT-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        /* Assicura che il body occupi tutta l'altezza della finestra */
+        /* Blocca scrolling iniziale */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Impedisce lo scrolling inizialmente */
+            overflow: hidden; /* Blocca lo scrolling inizialmente */
+            touch-action: none; /* Evita problemi di scrolling su mobile */
         }
 
         body {
-            font-family: 'FuturaT', Arial, sans-serif; /* Usa FuturaT, fallback Arial */
+            font-family: 'FuturaT', Arial, sans-serif;
             text-align: center;
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
@@ -30,8 +30,8 @@
             color: white;
             display: flex;
             flex-direction: column;
-            height: 100vh; /* Altezza fissa della viewport */
-            padding-top: 60px; /* Padding per la navbar */
+            height: 100vh;
+            padding-top: 60px;
         }
 
         /* Navbar */
@@ -153,8 +153,11 @@
             const observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (document.querySelector('.elfsight-app-4ef6c456-f692-4c72-88e9-732710272c26')) {
-                        document.body.style.overflow = 'auto'; // Abilita lo scrolling
-                        observer.disconnect(); // Interrompe l'osservazione una volta caricato
+                        document.documentElement.style.overflow = 'auto'; // Abilita lo scrolling su HTML
+                        document.body.style.overflow = 'auto'; // Abilita lo scrolling su BODY
+                        document.documentElement.style.touchAction = 'auto'; // Riabilita lo scrolling touch su mobile
+                        document.body.style.touchAction = 'auto';
+                        observer.disconnect(); // Ferma l'osservazione
                     }
                 });
             });
