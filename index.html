@@ -5,16 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        /* Assicura che il body occupi tutta l'altezza della finestra */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
-            background-attachment: scroll; /* Evita problemi di scrolling su mobile */
+            background-attachment: fixed; /* Evita problemi di scrolling su mobile */
             color: white;
-            padding-top: 60px; /* Spazio per la navbar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra il contenuto */
+            min-height: 100vh; /* Occupa almeno tutta la viewport */
         }
 
         /* Navbar esterna */
@@ -24,13 +32,12 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap; /* Permette agli elementi di andare a capo se serve */
-            position: fixed; /* Fissa la navbar in alto */
+            position: fixed; /* Mantiene la navbar fissa in alto */
             top: 0;
             left: 0;
             width: 100%;
             z-index: 10;
-            height: auto; /* Altezza dinamica */
-            padding: 5px 10px;
+            padding: 10px 20px;
         }
 
         /* Contenitore per la scritta e il logo */
@@ -38,51 +45,58 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            padding: 5px;
         }
 
         .navbar p {
-            margin-left: 10px;
-            font-size: 18px; /* Ridotto per mobile */
+            margin: 0;
+            font-size: 18px;
         }
 
         .navbar img {
-            height: 30px; /* Dimensione ridotta per mobile */
+            height: 30px;
             margin-left: 10px;
         }
 
-        /* Allinea i link a destra */
+        /* Link navbar */
         .navbar .links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-left: auto;
         }
 
         .navbar a {
             color: #4DB8FF;
             text-decoration: none;
             font-weight: bold;
-            font-size: 14px; /* Dimensione ridotta per mobile */
-            margin-right: 10px; /* Spaziatura ridotta */
-            padding: 5px;
+            font-size: 14px;
+            margin: 5px 15px;
         }
 
         .navbar a:hover {
             text-decoration: underline;
         }
 
-        /* Contenuto principale */
+        /* Contenitore principale */
+        .content {
+            flex-grow: 1; /* Occupa lo spazio disponibile */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Box con il testo */
         .contact {
-            margin-top: 80px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.7);
             display: inline-block;
             border-radius: 10px;
-            width: 90%; /* Impedisce che il contenuto sia troppo largo su mobile */
-            max-width: 600px; /* Limita la larghezza su desktop */
+            width: 90%;
+            max-width: 600px;
         }
 
+        /* Link */
         a {
             color: #4DB8FF;
             text-decoration: none;
@@ -97,12 +111,14 @@
         @media screen and (max-width: 768px) {
             body {
                 font-size: 16px;
+                background-attachment: scroll; /* Evita problemi di scrolling su mobile */
             }
 
             .navbar {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
+                padding: 10px;
             }
 
             .navbar .left-content {
@@ -122,7 +138,7 @@
             }
 
             .contact {
-                margin-top: 100px; /* Più spazio sotto la navbar */
+                margin-top: 80px; /* Evita che sia troppo in alto */
             }
         }
     </style>
@@ -141,9 +157,12 @@
         </div>
     </div>
 
-    <div class="contact">
-        <h2>Benvenuto su Leathernecks Softair</h2>
-        <p>Scopri il nostro team e le nostre attività.</p>
+    <!-- Contenitore principale -->
+    <div class="content">
+        <div class="contact">
+            <h2>Benvenuto su Leathernecks Softair</h2>
+            <p>Scopri il nostro team e le nostre attività.</p>
+        </div>
     </div>
 </body>
 </html>
