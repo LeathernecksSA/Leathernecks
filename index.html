@@ -10,54 +10,62 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background: url('bg.jpg') no-repeat center center fixed;
-            background-size: cover; /* Assicura che l'immagine copra tutta la pagina */
-            color: white; /* Testo in bianco per contrasto */
+            background: url('bg.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: scroll; /* Evita problemi di scrolling su mobile */
+            color: white;
             padding-top: 60px; /* Spazio per la navbar */
         }
 
         /* Navbar esterna */
         .navbar {
-            background-color: rgba(0, 0, 0, 0.8); /* Rende la navbar semi-trasparente */
-            padding: 0;
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: absolute; /* Posiziona la navbar sopra l'immagine */
+            flex-wrap: wrap; /* Permette agli elementi di andare a capo se serve */
+            position: fixed; /* Fissa la navbar in alto */
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 10; /* Mantiene la navbar sopra il contenuto */
-            height: 40px;
+            z-index: 10;
+            height: auto; /* Altezza dinamica */
+            padding: 5px 10px;
         }
 
         /* Contenitore per la scritta e il logo */
         .navbar .left-content {
             display: flex;
-            align-items: center; /* Allinea la scritta e il logo verticalmente */
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 5px;
         }
 
         .navbar p {
-            margin-left: 20px; /* Distanza dal lato sinistro */
-            font-size: 24px; /* Dimensione del testo */
+            margin-left: 10px;
+            font-size: 18px; /* Ridotto per mobile */
         }
 
         .navbar img {
-            height: 40px; /* Imposta l'altezza del logo */
-            margin-left: 10px; /* Spazio tra il testo e il logo */
+            height: 30px; /* Dimensione ridotta per mobile */
+            margin-left: 10px;
         }
 
         /* Allinea i link a destra */
         .navbar .links {
-            margin-left: auto; /* Spinge i link verso la destra */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-left: auto;
         }
 
         .navbar a {
             color: #4DB8FF;
             text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
-            margin-right: 20px; /* Distanza dal lato destro */
+            font-size: 14px; /* Dimensione ridotta per mobile */
+            margin-right: 10px; /* Spaziatura ridotta */
+            padding: 5px;
         }
 
         .navbar a:hover {
@@ -66,11 +74,13 @@
 
         /* Contenuto principale */
         .contact {
-            margin-top: 80px; /* Spazio per evitare che il contenuto venga coperto dalla navbar */
+            margin-top: 80px;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente per leggibilità */
+            background-color: rgba(0, 0, 0, 0.7);
             display: inline-block;
             border-radius: 10px;
+            width: 90%; /* Impedisce che il contenuto sia troppo largo su mobile */
+            max-width: 600px; /* Limita la larghezza su desktop */
         }
 
         a {
@@ -82,6 +92,39 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Media query per schermi piccoli */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .navbar .left-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar .links {
+                width: 100%;
+                justify-content: center;
+                margin-top: 5px;
+            }
+
+            .navbar a {
+                font-size: 14px;
+                margin: 5px;
+            }
+
+            .contact {
+                margin-top: 100px; /* Più spazio sotto la navbar */
+            }
+        }
     </style>
 </head>
 <body>
@@ -89,18 +132,18 @@
     <div class="navbar">
         <div class="left-content">
             <p>Leathernecks Softair</p>
-            <img src="logo.jpg" alt="Logo Leathernecks"> <!-- Assicurati di avere il percorso giusto per l'immagine -->
+            <img src="logo.jpg" alt="Logo Leathernecks">
         </div>
         <div class="links">
             <a href="index.html">Home</a>
             <a href="foto.html">Foto</a>
             <a href="contatti.html">Contatti</a>
-            <p>DIOCANE</p>
-            <p>MAIALA</p>
-            <p>dioMIO</p>
         </div>
     </div>
 
-    
+    <div class="contact">
+        <h2>Benvenuto su Leathernecks Softair</h2>
+        <p>Scopri il nostro team e le nostre attività.</p>
+    </div>
 </body>
 </html>
