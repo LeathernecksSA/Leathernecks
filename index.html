@@ -17,13 +17,14 @@
             text-align: center;
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed; /* Evita problemi di scrolling su mobile */
+            background-attachment: fixed;
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centra il contenuto */
-            min-height: 100vh; /* Occupa almeno tutta la viewport */
-            padding-top: 60px; /* Aggiunto padding per evitare sovrapposizione navbar */
+            /* Altezza fissa della viewport */
+            height: 100vh; /* Questa è la modifica principale */
+            overflow: hidden; /* Impedisce lo scrolling */
+            padding-top: 60px; /* Padding per la navbar */
         }
 
         /* Contenitore principale */
