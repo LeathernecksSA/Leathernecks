@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foto</title>
     <style>
+        /* Importa il font Futura (assicurati di avere il file del font) */
         @font-face {
             font-family: 'FuturaT';
-            src: url('FuturaT-Regular.ttf') format('truetype');
+            src: url('FuturaT-Regular.ttf') format('truetype'); /* Sostituisci con il percorso corretto */
             font-weight: normal;
             font-style: normal;
         }
 
-        /* Evita spazio bianco e gestisce lo scrolling */
+        /* Assicura che il body occupi tutta l'altezza della finestra */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Blocca scrolling iniziale */
+            overflow: hidden; /* Impedisce lo scrolling inizialmente */
         }
 
         body {
-            font-family: 'FuturaT', Arial, sans-serif;
+            font-family: 'FuturaT', Arial, sans-serif; /* Usa FuturaT, fallback Arial */
             text-align: center;
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
@@ -29,8 +30,8 @@
             color: white;
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            padding-top: 60px;
+            height: 100vh; /* Altezza fissa della viewport */
+            padding-top: 60px; /* Padding per la navbar */
         }
 
         /* Navbar */
@@ -95,8 +96,6 @@
             max-height: calc(100vh - 60px);
             overflow-y: auto;
             padding: 20px;
-            opacity: 0; /* Nasconde il contenuto fino al caricamento */
-            transition: opacity 0.5s ease-in-out;
         }
 
         /* Link */
@@ -151,23 +150,11 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const content = document.querySelector('.content');
-            
-            // Osserva quando il widget viene caricato
             const observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (document.querySelector('.elfsight-app-4ef6c456-f692-4c72-88e9-732710272c26')) {
-                        document.documentElement.style.overflow = 'auto'; // Abilita scrolling HTML
-                        document.body.style.overflow = 'auto'; // Abilita scrolling BODY
-                        content.style.opacity = '1'; // Mostra il contenuto con fade-in
-                        observer.disconnect(); // Ferma l'osservazione
-                        
-                        // Corregge l'altezza in caso di problemi di scrolling
-                        setTimeout(() => {
-                            document.documentElement.style.height = '100%';
-                            document.body.style.height = '100%';
-                            content.style.maxHeight = 'calc(100vh - 60px)';
-                        }, 300);
+                        document.body.style.overflow = 'auto'; // Abilita lo scrolling
+                        observer.disconnect(); // Interrompe l'osservazione una volta caricato
                     }
                 });
             });
