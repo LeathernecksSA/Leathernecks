@@ -65,24 +65,48 @@
             min-height: 50px;
             z-index: 1000;
             display: flex;
-            flex-direction: column; /* Disposizione a colonna su mobile */
-            align-items: center; /* Allinea gli elementi al centro orizzontalmente */
+            justify-content: space-between;
+            align-items: center;
             box-sizing: border-box; /* Importante per evitare problemi di larghezza */
         }
 
         .navbar .logo-container {
             display: flex;
             align-items: center;
-            margin-bottom: 10px; /* Spazio sotto il logo */
         }
 
-        .navbar .links-container {
+        .navbar .logo-container p {
+            color: white;
+            font-weight: bold;
+            margin: 0;
+            margin-left: 20px;
+            font-size: 20px;
+        }
+
+        .navbar .logo-container img {
+            height: 30px;
+            margin-left: 10px;
+        }
+
+        .navbar img[alt="Logo FIGT"] {
+            height: 50px;
+            margin: 0 10px;
+        }
+
+        .links-container {
             display: flex;
-            flex-direction: row; /* Disposizione orizzontale su desktop */
+            margin-right: 20px;
         }
 
         .navbar a {
-            margin: 0 15px; /* Spazio tra i link */
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
         }
 
         /* Link */
@@ -115,8 +139,8 @@
             }
 
             .navbar {
-                flex-direction: column; /* Assicura la disposizione a colonna su mobile */
-                align-items: center; /* Allinea gli elementi al centro orizzontalmente */
+                flex-direction: column; /* Navbar a colonna su mobile */
+                align-items: flex-start; /* Allinea gli elementi a sinistra */
                 padding: 10px;
                 min-height: 80px; /* Altezza minima navbar su mobile */
             }
@@ -142,8 +166,8 @@
         <div class="logo-container">
             <p>Leathernecks Softair</p>
             <img src="logo.jpg" alt="Logo Leathernecks">
-            <img src="figt.png" alt="Logo FIGT">
         </div>
+        <img src="figt.png" alt="Logo FIGT">
         <div class="links-container">
             <a href="index.html">Home</a>
             <a href="foto.html">Foto</a>
