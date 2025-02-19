@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('C:/Users/danie/OneDrive/Desktop/Leathernecks/bg.jpg') no-repeat center center fixed;
+            background-size: cover; /* Assicura che l'immagine copra tutta la pagina */
+            color: white; /* Testo in bianco per contrasto */
+            padding-top: 60px; /* Spazio per la navbar */
+        }
+
+        /* Navbar esterna */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8); /* Rende la navbar semi-trasparente */
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute; /* Posiziona la navbar sopra l'immagine */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10; /* Mantiene la navbar sopra il contenuto */
+            height: 40px;
+        }
+
+        /* Contenitore per la scritta e il logo */
+        .navbar .left-content {
+            display: flex;
+            align-items: center; /* Allinea la scritta e il logo verticalmente */
+        }
+
+        .navbar p {
+            margin-left: 20px; /* Distanza dal lato sinistro */
+            font-size: 24px; /* Dimensione del testo */
+        }
+
+        .navbar img {
+            height: 40px; /* Imposta l'altezza del logo */
+            margin-left: 10px; /* Spazio tra il testo e il logo */
+        }
+
+        /* Allinea i link a destra */
+        .navbar .links {
+            margin-left: auto; /* Spinge i link verso la destra */
+        }
+
+        .navbar a {
+            color: #4DB8FF;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 20px; /* Distanza dal lato destro */
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenuto principale */
+        .contact {
+            margin-top: 80px; /* Spazio per evitare che il contenuto venga coperto dalla navbar */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente per leggibilità */
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+        a {
+            color: #4DB8FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar esterna -->
+    <div class="navbar">
+        <div class="left-content">
+            <p>Leathernecks Softair</p>
+            <img src="logo.jpg" alt="Logo Leathernecks"> <!-- Assicurati di avere il percorso giusto per l'immagine -->
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="foto.html">Foto</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </div>
+
+    
+</body>
+</html>
