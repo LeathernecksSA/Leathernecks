@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        /* Importa il font Futura (assicurati di avere il file del font) */
         @font-face {
             font-family: 'FuturaT';
-            src: url('FuturaT-Regular.ttf') format('truetype'); /* Sostituisci con il percorso corretto */
+            src: url('FuturaT-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        /* Assicura che il body occupi tutta l'altezza della finestra */
         html, body {
             height: 100%;
             margin: 0;
@@ -21,7 +19,7 @@
         }
 
         body {
-            font-family: 'FuturaT', Arial, sans-serif; /* Usa FuturaT, fallback Arial */
+            font-family: 'FuturaT', Arial, sans-serif;
             text-align: center;
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
@@ -29,77 +27,69 @@
             color: white;
             display: flex;
             flex-direction: column;
-            height: 100vh; /* Altezza fissa della viewport */
-            overflow: hidden; /* Impedisce lo scrolling */
-            padding-top: 60px; /* Padding per la navbar */
+            height: 100vh;
+            overflow: hidden;
+            padding-top: 60px;
         }
 
-        /* Contenitore principale */
         .content {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Allinea il contenuto in alto */
-            padding-top: 100px; /* Regola lo spazio dal bordo superiore */
+            justify-content: center;
+            padding: 20px;
         }
 
-        /* Box con il testo */
         .infobox {
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.8); /* Sfondo leggermente più scuro */
-            display: inline-block;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
-            color: white; /* Testo bianco */
         }
 
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px; /* Ridotto il padding per diminuire l'altezza */
-            min-height: 50px; /* Imposta un'altezza minima per evitare problemi di layout */
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
-        .navbar .logo-container { /* Contenitore per logo e testo */
+        .logo-container {
             display: flex;
             align-items: center;
         }
 
-        .navbar .logo-container p { /* Stile per "Leathernecks Softair" */
-            color: white; /* Scritta bianca */
+        .logo-container p {
+            color: white;
             font-weight: bold;
-            margin: 0;
-            margin-left: 20px;
-            font-size: 20px; /* Aumenta la dimensione del testo */
+            margin: 0 10px;
+            font-size: 18px;
         }
 
-        .navbar .logo-container img { /* Stile per il logo Leathernecks */
-            height: 30px; /* Ridimensiona il logo */
-            margin-left: 10px;
+        .logo-container img {
+            height: 30px;
         }
 
-        .navbar img[alt="Logo FIGT"] { /* Stile specifico per il logo FIGT */
-            height: 50px; /* Ridimensiona il logo FIGT */
+        .navbar img[alt="Logo FIGT"] {
+            height: 50px;
             margin: 0 10px;
         }
 
         .links-container {
             display: flex;
-            margin-right: 20px;
         }
 
         .navbar a {
-            color: white; /* Link bianchi */
-            margin: 0 15px;
+            color: white;
+            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
         }
@@ -108,32 +98,37 @@
             text-decoration: underline;
         }
 
-        /* Link */
-        a {
-            color: #4DB8FF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Media query per schermi piccoli */
         @media screen and (max-width: 768px) {
             body {
                 font-size: 16px;
                 background-attachment: scroll;
-                padding-top: 120px;
+                padding-top: 80px;
             }
 
-            .contact {
-                margin-top: 80px;
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 10px 0;
             }
 
-            .navbar a {
-                margin: 0 10px;
+            .logo-container, .links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo-container p {
+                font-size: 16px;
+                margin: 5px 0;
+            }
+
+            .links-container a {
+                margin: 5px 0;
                 font-size: 14px;
+            }
+
+            .infobox {
+                width: 95%;
             }
         }
     </style>
