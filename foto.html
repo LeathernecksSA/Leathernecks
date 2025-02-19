@@ -12,13 +12,12 @@
             font-style: normal;
         }
 
-        /* Blocca scrolling iniziale */
+        /* Evita spazio bianco e gestisce lo scrolling */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Blocca lo scrolling inizialmente */
-            touch-action: none; /* Evita problemi di scrolling su mobile */
+            overflow: hidden; /* Blocca scrolling iniziale */
         }
 
         body {
@@ -96,6 +95,8 @@
             max-height: calc(100vh - 60px);
             overflow-y: auto;
             padding: 20px;
+            opacity: 0; /* Nasconde il contenuto fino al caricamento */
+            transition: opacity 0.5s ease-in-out;
         }
 
         /* Link */
@@ -150,14 +151,23 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const content = document.querySelector('.content');
+            
+            // Osserva quando il widget viene caricato
             const observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (document.querySelector('.elfsight-app-4ef6c456-f692-4c72-88e9-732710272c26')) {
-                        document.documentElement.style.overflow = 'auto'; // Abilita lo scrolling su HTML
-                        document.body.style.overflow = 'auto'; // Abilita lo scrolling su BODY
-                        document.documentElement.style.touchAction = 'auto'; // Riabilita lo scrolling touch su mobile
-                        document.body.style.touchAction = 'auto';
+                        document.documentElement.style.overflow = 'auto'; // Abilita scrolling HTML
+                        document.body.style.overflow = 'auto'; // Abilita scrolling BODY
+                        content.style.opacity = '1'; // Mostra il contenuto con fade-in
                         observer.disconnect(); // Ferma l'osservazione
+                        
+                        // Corregge l'altezza in caso di problemi di scrolling
+                        setTimeout(() => {
+                            document.documentElement.style.height = '100%';
+                            document.body.style.height = '100%';
+                            content.style.maxHeight = 'calc(100vh - 60px)';
+                        }, 300);
                     }
                 });
             });
