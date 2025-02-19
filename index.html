@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        /* Importa il font Futura (assicurati di avere il file del font) */
+        /* Importa il font Futura */
         @font-face {
             font-family: 'FuturaT';
-            src: url('FuturaT-Regular.ttf') format('truetype'); /* Sostituisci con il percorso corretto */
+            src: url('FuturaT-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        /* Assicura che il body occupi tutta l'altezza della finestra */
         html, body {
             height: 100%;
             margin: 0;
@@ -21,7 +20,7 @@
         }
 
         body {
-            font-family: 'FuturaT', Arial, sans-serif; /* Usa FuturaT, fallback Arial */
+            font-family: 'FuturaT', Arial, sans-serif;
             text-align: center;
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
@@ -29,9 +28,9 @@
             color: white;
             display: flex;
             flex-direction: column;
-            height: 100vh; /* Altezza fissa della viewport */
-            overflow: hidden; /* Impedisce lo scrolling */
-            padding-top: 60px; /* Padding per la navbar */
+            min-height: 100vh; /* Altezza minima per coprire tutta la viewport */
+            overflow-x: hidden; /* Impedisce lo scorrimento orizzontale indesiderato */
+            padding-top: 60px;
         }
 
         /* Contenitore principale */
@@ -40,19 +39,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Allinea il contenuto in alto */
-            padding-top: 100px; /* Regola lo spazio dal bordo superiore */
+            justify-content: flex-start;
+            padding-top: 80px; /* Regolato per schermi piccoli */
+            padding-bottom: 20px; /* Aggiunto padding in basso */
         }
 
         /* Box con il testo */
         .infobox {
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.8); /* Sfondo leggermente più scuro */
-            display: inline-block;
+            padding: 20px; /* Aumentato il padding */
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
-            color: white; /* Testo bianco */
+            color: white;
+            box-sizing: border-box; /* Include padding e border nella larghezza */
         }
 
         /* Navbar */
@@ -61,34 +61,35 @@
             top: 0;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px; /* Ridotto il padding per diminuire l'altezza */
-            min-height: 50px; /* Imposta un'altezza minima per evitare problemi di layout */
+            padding: 10px;
+            min-height: 50px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-sizing: border-box; /* Importante per evitare problemi di larghezza */
         }
 
-        .navbar .logo-container { /* Contenitore per logo e testo */
+        .navbar .logo-container {
             display: flex;
             align-items: center;
         }
 
-        .navbar .logo-container p { /* Stile per "Leathernecks Softair" */
-            color: white; /* Scritta bianca */
+        .navbar .logo-container p {
+            color: white;
             font-weight: bold;
             margin: 0;
             margin-left: 20px;
-            font-size: 20px; /* Aumenta la dimensione del testo */
+            font-size: 20px;
         }
 
-        .navbar .logo-container img { /* Stile per il logo Leathernecks */
-            height: 30px; /* Ridimensiona il logo */
+        .navbar .logo-container img {
+            height: 30px;
             margin-left: 10px;
         }
 
-        .navbar img[alt="Logo FIGT"] { /* Stile specifico per il logo FIGT */
-            height: 50px; /* Ridimensiona il logo FIGT */
+        .navbar img[alt="Logo FIGT"] {
+            height: 50px;
             margin: 0 10px;
         }
 
@@ -98,7 +99,7 @@
         }
 
         .navbar a {
-            color: white; /* Link bianchi */
+            color: white;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
@@ -123,17 +124,39 @@
         @media screen and (max-width: 768px) {
             body {
                 font-size: 16px;
-                background-attachment: scroll;
-                padding-top: 120px;
+                background-attachment: scroll; /* Sfondo scorrevole su mobile */
+                padding-top: 120px; /* Aumenta il padding per la navbar su mobile */
+                overflow-x: hidden; /* Impedisce lo scorrimento orizzontale */
+            }
+
+            .content {
+                padding-top: 140px; /* Regola ulteriormente il padding su mobile */
             }
 
             .infobox {
-                margin-top: 80px;
+                padding: 15px; /* Ridotto il padding su mobile */
+                font-size: 14px; /* Dimensione testo ridotta su mobile */
+            }
+
+            .navbar {
+                flex-direction: column; /* Navbar a colonna su mobile */
+                align-items: flex-start; /* Allinea gli elementi a sinistra */
+                padding: 10px;
+                min-height: 80px; /* Altezza minima navbar su mobile */
+            }
+
+            .navbar .logo-container {
+                margin-bottom: 10px; /* Spazio tra logo e link su mobile */
+            }
+
+            .links-container {
+                flex-direction: column; /* Link a colonna su mobile */
+                margin-right: 0;
             }
 
             .navbar a {
-                margin: 0 10px;
-                font-size: 14px;
+                margin: 5px 0; /* Margini per i link su mobile */
+                font-size: 16px;
             }
         }
     </style>
