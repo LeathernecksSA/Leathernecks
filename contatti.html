@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti</title>
+    <title>Home</title>
     <style>
         /* Importa il font Futura (assicurati di avere il file del font) */
         @font-face {
@@ -32,6 +32,27 @@
             height: 100vh; /* Altezza fissa della viewport */
             overflow: hidden; /* Impedisce lo scrolling */
             padding-top: 60px; /* Padding per la navbar */
+        }
+
+        /* Contenitore principale */
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Allinea il contenuto in alto */
+            padding-top: 100px; /* Regola lo spazio dal bordo superiore */
+        }
+
+        /* Box con il testo */
+        .contact {
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8); /* Sfondo leggermente più scuro */
+            display: inline-block;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            color: white; /* Testo bianco */
         }
 
         /* Navbar */
@@ -87,27 +108,6 @@
             text-decoration: underline;
         }
 
-        /* Contenuto principale */
-        .content {
-            flex-grow: 1; /* Importante per far espandere il contenuto */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center; /* Centra verticalmente il contenuto */
-            padding: 20px; /* Aggiungi un po' di padding interno */
-        }
-
-        .contact {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Sfondo leggermente più scuro */
-            display: inline-block;
-            border-radius: 10px;
-            width: 20%; /* Larghezza del box */
-            max-width: 600px; /* Larghezza massima del box */
-            color: white; /* Testo bianco */
-            margin-top: 20px; /* Spazio sopra il box */
-        }
-
         /* Link */
         a {
             color: #4DB8FF;
@@ -125,6 +125,10 @@
                 font-size: 16px;
                 background-attachment: scroll;
                 padding-top: 120px;
+            }
+
+            .contact {
+                margin-top: 80px;
             }
 
             .navbar a {
